@@ -1,0 +1,31 @@
+{
+    "name": "Rebis Statistics",
+    "version": "0.0.1",
+    "description": "Personal budget statistics",
+    "repository": "https://github.com/alexeyBityukov/Rebis.git",
+    "author": "Alexey Bityukov <alex.bityuckov@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "eslint": "5.6.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-chai-friendly": "^0.4.1",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.0",
+        "eslint-plugin-mocha": "^5.2.1",
+        "eslint-plugin-node": "^8.0.1",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-react": "^7.12.4",
+        "eslint-plugin-standard": "^4.0.0"
+    },
+    "scripts": {
+        "lint-server": "eslint ./server/src",
+        "lint-client": "eslint ./client/src",
+        "lint": "eslint ./client/src && eslint ./server/src",
+        "test-client": "cd ./client && yarn react-scripts test",
+        "test-server": "cd ./server && ./node_modules/mocha/bin/mocha --require @babel/register src/tests/* --timeout 10000",
+        "test": "cd ./client && yarn react-scripts test && cd ../server && ./node_modules/mocha/bin/mocha --require @babel/register src/tests/* --timeout 10000"
+    },
+    "dependencies": {}
+}
