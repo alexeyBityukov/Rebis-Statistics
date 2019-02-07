@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
+import changeTest from './actions/changeTest';
 
-const App = () => (
+const App = props => (
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -11,16 +13,20 @@ const App = () => (
         <code>src/App.js</code>
         and save to reload.
       </p>
-      <a
+      <button
         className="App-link"
-        href="https://reactjs.org"
+        href="#"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={props.changeTest}
       >
-        Learn React
-      </a>
+        {props.reduxTest}
+      </button>
     </header>
   </div>
 );
 
-export default App;
+export default connect(
+  state => ({ reduxTest: state.reduxTest }),
+  dispatch => ({ changeTest: () => dispatch(changeTest()) }),
+)(App);

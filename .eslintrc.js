@@ -40,7 +40,7 @@ module.exports = {
         'error',
         {
           'allow': [
-            '_id'
+            '_id',
           ]
         }
       ]
@@ -51,5 +51,19 @@ module.exports = {
     rules: {
       'no-console': 'off',
     }
-  }]
+  },
+    {
+      files: 'client/src/store/index.js',
+      rules: {
+        'no-underscore-dangle': [
+          'error',
+          {
+            'allow': [
+              '__REDUX_DEVTOOLS_EXTENSION__',
+              '__REDUX_DEVTOOLS_EXTENSION__'
+            ]
+          }
+        ]
+      }
+    }]
 };
