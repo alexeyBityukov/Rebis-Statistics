@@ -1,16 +1,18 @@
-import { CHANGE_TEST } from '../actions/changeTest';
+import { SET_RUSSIAN_LANG } from '../actions/setRussianLang';
+import english from '../languages/english';
+import russian from '../languages/russian';
 
 
 const initialState = {
-  reduxTest: 'true',
+  lang: english,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_TEST:
+    case SET_RUSSIAN_LANG:
       return {
         ...state,
-        reduxTest: action.reduxTest,
+        lang: russian,
       };
     default:
       return state;
