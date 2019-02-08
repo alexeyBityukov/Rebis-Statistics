@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
 import Registration from './Registration';
-import { connect } from 'react-redux';
 
-export default connect((state => ({registration: state.form.registration})))(reduxForm(
-  {
-    form: 'registration'
-  }
-)(class extends Component {
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('send req on save');
-    console.log(this.props.registration.values);
+export default
+  class extends Component {
+    state = {
+      errorMessage: ''
+    };
+
+    handleSubmit = (value) => {
+      console.log('send req on save');
+      console.log(value);
+      this.setState({errorMessage: 'asd'});
+    };
+
+    render() {
+      return <Registration
+        onSubmit={this.handleSubmit}
+        errorMessage={this.state.errorMessage}
+      />;
+    }
   };
-
-  render() {
-    return <Registration
-      handleSubmit={this.handleSubmit}
-    />;
-  }
-}));
