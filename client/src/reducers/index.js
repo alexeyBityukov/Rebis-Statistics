@@ -1,19 +1,20 @@
-import { SET_RUSSIAN_LANG } from '../actions/setRussianLang';
+import { UPSERT_REGISTRATION_FIELD } from '../actions/upsertRegistrationField';
 import english from '../languages/english';
-import russian from '../languages/russian';
+// import russian from '../languages/russian';
 
 
 const initialState = {
   lang: english,
+  registration: {},
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_RUSSIAN_LANG:
-      return {
-        ...state,
-        lang: russian,
-      };
+    case UPSERT_REGISTRATION_FIELD: {
+      const newState = { ...state };
+      newState.registration[action.fieldName] = action.fieldValue;
+      return newState;
+    }
     default:
       return state;
   }

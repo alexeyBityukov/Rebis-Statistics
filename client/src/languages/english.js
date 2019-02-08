@@ -3,5 +3,6 @@ export default {
     loginFieldLabel: 'Login',
     passwordFieldLabel: 'Password',
     registerButtonLabel: 'Register',
+    repeatPasswordFieldLabel: 'Repeat password',
   },
 };

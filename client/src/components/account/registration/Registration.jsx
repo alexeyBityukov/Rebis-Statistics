@@ -16,7 +16,13 @@ const styles = ({ spacing }) => createStyles({
 export default connect(
   state => ({ lang: state.lang }),
 )(withStyles(styles)((props) => {
-  const { classes, lang: { registration } } = props;
+  const {
+    classes,
+    handleOnChange,
+    handleOnClick,
+    lang: { registration },
+    fields,
+  } = props;
   return (
     <Paper className={classes.paper}>
       <form autoComplete="off">
@@ -25,6 +31,8 @@ export default connect(
           fullWidth
           required
           label={registration.loginFieldLabel}
+          onChange={handleOnChange('loginField')}
+          value={fields.loginField || ''}
         />
         <TextField
           margin="normal"
@@ -32,9 +40,21 @@ export default connect(
           required
           type="password"
           label={registration.passwordFieldLabel}
+          onChange={handleOnChange('passwordField')}
+          value={fields.passwordField || ''}
+        />
+        <TextField
+          margin="normal"
+          fullWidth
+          required
+          type="password"
+          label={registration.repeatPasswordFieldLabel}
+          onChange={handleOnChange('repeatPasswordField')}
+          value={fields.repeatPasswordField || ''}
         />
         <Button
           color="primary"
+          onClick={handleOnClick}
         >
           {registration.registerButtonLabel}
         </Button>
