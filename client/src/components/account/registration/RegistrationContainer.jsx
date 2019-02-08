@@ -1,35 +1,22 @@
 import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 import Registration from './Registration';
+import { connect } from 'react-redux';
 
-export default class extends Component {
-  state = {
-    fields: {
-    }
-  };
-
-  handleOnChange = (fieldName) => {
-    return (event) => {
-      event.preventDefault();
-      this.setState({
-        fields: {
-          ...this.state.fields,
-          [fieldName]: event.target.value,
-        }
-      });
-    }
-  };
-
-  handleOnClick = (event) => {
+export default connect((state => ({registration: state.form.registration})))(reduxForm(
+  {
+    form: 'registration'
+  }
+)(class extends Component {
+  handleSubmit = (event) => {
     event.preventDefault();
     console.log('send req on save');
-    console.log(this.state);
+    console.log(this.props.registration.values);
   };
 
   render() {
     return <Registration
-      handleOnChange={this.handleOnChange}
-      handleOnClick={this.handleOnClick}
-      fields={this.state.fields}
+      handleSubmit={this.handleSubmit}
     />;
   }
-};
+}));

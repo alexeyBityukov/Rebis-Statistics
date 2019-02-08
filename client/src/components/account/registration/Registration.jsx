@@ -1,9 +1,10 @@
 import React from 'react';
 import { withStyles, createStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
+import { TextField } from 'redux-form-material-ui';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
+import { Field } from 'redux-form';
 
 
 const styles = ({ spacing }) => createStyles({
@@ -14,47 +15,43 @@ const styles = ({ spacing }) => createStyles({
 });
 
 export default connect(
-  state => ({ lang: state.lang }),
+  state => ({ lang: state.main.lang }),
 )(withStyles(styles)((props) => {
   const {
     classes,
-    handleOnChange,
-    handleOnClick,
     lang: { registration },
-    fields,
+    handleSubmit,
   } = props;
   return (
     <Paper className={classes.paper}>
-      <form autoComplete="off">
-        <TextField
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <Field
+          name="login"
           margin="normal"
           fullWidth
           required
           label={registration.loginFieldLabel}
-          onChange={handleOnChange('loginField')}
-          value={fields.loginField || ''}
+          component={TextField}
         />
-        <TextField
+        <Field
+          name="password"
           margin="normal"
           fullWidth
           required
-          type="password"
           label={registration.passwordFieldLabel}
-          onChange={handleOnChange('passwordField')}
-          value={fields.passwordField || ''}
+          component={TextField}
         />
-        <TextField
+        <Field
+          name="repeatPassword"
           margin="normal"
           fullWidth
           required
-          type="password"
           label={registration.repeatPasswordFieldLabel}
-          onChange={handleOnChange('repeatPasswordField')}
-          value={fields.repeatPasswordField || ''}
+          component={TextField}
         />
         <Button
           color="primary"
-          onClick={handleOnClick}
+          type="submit"
         >
           {registration.registerButtonLabel}
         </Button>
