@@ -17,7 +17,7 @@ app.use('/api/users/', authorizationHandler);
 
 app.use(express.static(path.join(__dirname, '../../client/build')));
 
-app.use('/main', (req, res) => {
+app.use('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../client/build', 'index.html'));
 });
 

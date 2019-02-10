@@ -17,6 +17,7 @@ export default () => expressJwt({ secret: config.secret, isRevoked }).unless({
     '/api/users/authenticate',
     '/api/users/register',
     '/',
+    '/registration',
     /\/static/,
     '/favicon.ico',
   ],
