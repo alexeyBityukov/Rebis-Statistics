@@ -9,7 +9,7 @@ import TextField from '../../textFields';
 
 
 const listFields = {
-  login: 'login',
+  email: 'email',
   password: 'password',
   repeatPassword: 'repeatPassword',
 };
@@ -21,12 +21,17 @@ const styles = ({ spacing }) => createStyles({
   },
 });
 
-const validate = (values) => {
+const validate = fields => (values) => {
   const errors = {};
+  Object.values(fields).forEach((key) => {
+    if (!values[key]) {
+      errors[key] = 'Required';
+    }
+  });
   if (
-    values.login && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.login)
+    values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
   ) {
-    errors.login = 'Invalid email address';
+    errors.email = 'Invalid email address';
   }
   return errors;
 };
@@ -36,7 +41,7 @@ export default connect(
 )(withStyles(styles)(reduxForm(
   {
     form: 'registration',
-    validate,
+    validate: validate(listFields),
   },
 )((props) => {
   const {
@@ -49,9 +54,9 @@ export default connect(
     <Paper className={classes.paper}>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <Field
-          name={listFields.login}
+          name={listFields.email}
           required
-          label={registration.loginFieldLabel}
+          label={registration.emailFieldLabel}
           component={TextField}
         />
         <Field

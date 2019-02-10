@@ -1,8 +1,9 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 
-export default ({
+const renderTextField = ({
   input,
   label,
   meta: { touched, error },
@@ -21,3 +22,22 @@ export default ({
     {children}
   </TextField>
 );
+
+renderTextField.propTypes = {
+  meta: PropTypes.shape({}),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+  input: PropTypes.shape({}),
+  label: PropTypes.string,
+};
+
+renderTextField.defaultProps = {
+  meta: {},
+  children: null,
+  input: {},
+  label: '',
+};
+
+export default renderTextField;

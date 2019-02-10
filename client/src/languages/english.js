@@ -1,6 +1,6 @@
 export default {
   registration: {
-    loginFieldLabel: 'Login',
+    emailFieldLabel: 'Login',
     passwordFieldLabel: 'Password',
     registerButtonLabel: 'Register',
     repeatPasswordFieldLabel: 'Repeat password',
