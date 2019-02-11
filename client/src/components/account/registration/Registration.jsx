@@ -24,15 +24,15 @@ const styles = ({ spacing }) => createStyles({
 const validate = fields => (values) => {
   const errors = {};
   Object.values(fields).forEach((key) => {
-    if (!values[key]) {
-      errors[key] = 'Required';
-    }
+    if (!values[key]) errors[key] = 'requiredField';
   });
-  if (
-    values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  ) {
-    errors.email = 'Invalid email address';
+  if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) errors.email = 'invalidEmail';
+
+  if (values.password !== values.repeatPassword) {
+    errors.password = 'differentPasswords';
+    errors.repeatPassword = 'differentPasswords';
   }
+
   return errors;
 };
 

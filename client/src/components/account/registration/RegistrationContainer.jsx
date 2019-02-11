@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import Registration from './Registration';
 import config from '../../../config';
+import { connect } from 'react-redux';
 
-export default
-  class extends Component {
+export default connect(
+  state => ({ apiCreateUser: state.main.lang.errors.apiCreateUser }),
+)(class extends Component {
     state = {
-      errorMessage: ''
+      errorMessage: '',
     };
 
     handleSubmit = (value) => {
-      //post('register', body, );
       fetch(`${config.apiUrl}register`, {
         method: 'POST',
         headers: {
-          'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -21,15 +21,21 @@ export default
           password: value.password,
           hash: '123someHash'
         })
-      }).then((resp) => {console.log('resp')}).catch((err) => {console.log('err')});
-
-      this.setState({errorMessage: 'asd'});
+      }).then((response) => {
+        if(response.status === 200)
+          console.log('user created, go to next action');
+        else
+          throw new Error(this.props.apiCreateUser);
+      })
+        .catch((error) => {this.setState({errorMessage: error.message})});
     };
 
     render() {
+      const { errorMessage } = this.state;
+
       return <Registration
         onSubmit={this.handleSubmit}
-        errorMessage={this.state.errorMessage}
+        errorMessage={errorMessage}
       />;
     }
-  };
+  });

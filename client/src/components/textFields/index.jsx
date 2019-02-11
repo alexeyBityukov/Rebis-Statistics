@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 
 const renderTextField = ({
@@ -8,15 +9,14 @@ const renderTextField = ({
   label,
   meta: { touched, error },
   children,
-  ...custom
+  test,
 }) => (
   <TextField
     error={Boolean(touched && error)}
-    helperText={Boolean(touched && error) && error}
+    helperText={Boolean(touched && error) && test[error]}
     margin="normal"
     fullWidth
     label={label}
-    {...custom}
     {...input}
   >
     {children}
@@ -31,6 +31,7 @@ renderTextField.propTypes = {
   ]),
   input: PropTypes.shape({}),
   label: PropTypes.string,
+  test: PropTypes.shape({}),
 };
 
 renderTextField.defaultProps = {
@@ -38,6 +39,7 @@ renderTextField.defaultProps = {
   children: null,
   input: {},
   label: '',
+  test: {},
 };
 
-export default renderTextField;
+export default connect(state => ({ test: state.main.lang.errors }))(renderTextField);

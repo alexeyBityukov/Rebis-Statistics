@@ -1,7 +1,14 @@
 export default {
   registration: {
-    loginFieldLabel: 'Логин',
+    emailFieldLabel: 'E-mail',
     passwordFieldLabel: 'Пароль',
-    registerButtonLabel: 'Зарегестрироваться',
+    registerButtonLabel: 'Зарегистрироваться',
+    repeatPasswordFieldLabel: 'Повторите пароль',
+  },
+  errors: {
+    apiCreateUser: 'Неудалось зарегестрировать нового пользователя',
+    invalidEmail: 'Неверный e-mail',
+    requiredField: 'Обязательно для заполнения',
+    differentPasswords: 'Пароли несовпадают',
   },
 };

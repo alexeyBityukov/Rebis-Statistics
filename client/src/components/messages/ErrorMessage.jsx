@@ -19,7 +19,7 @@ export default withStyles(style)(({ classes, label }) => (
         color="error"
         variant="subtitle1"
       >
-        {`*${label}`}
+        {`* ${label}`}
       </Typography>
     )}
   </Fragment>
