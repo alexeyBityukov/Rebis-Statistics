@@ -4,7 +4,8 @@ module.exports = {
 	],
   'plugins': [
     'react',
-    'chai-friendly'
+    'chai-friendly',
+    'jest',
   ],
 	'settings': {
 		'react': {
@@ -15,7 +16,8 @@ module.exports = {
   'env': {
     'browser': true,
     'node': true,
-    'mocha': true
+    'mocha': true,
+    'jest/globals': true,
   },
   'rules': {
     'no-unused-vars': [

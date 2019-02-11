@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles, createStyles } from '@material-ui/core';
 
@@ -10,9 +10,9 @@ const style = ({ palette, spacing }) => createStyles({
   },
 });
 
-export default withStyles(style)(({ classes, label }) => (
-  <Fragment>
-    {label && (
+export default withStyles(style)(({ classes, label }) => {
+  if (label) {
+    return (
       <Typography
         align="left"
         className={classes.error}
@@ -21,6 +21,7 @@ export default withStyles(style)(({ classes, label }) => (
       >
         {`* ${label}`}
       </Typography>
-    )}
-  </Fragment>
-));
+    );
+  }
+  return (null);
+});
