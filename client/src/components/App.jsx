@@ -1,10 +1,14 @@
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import '../App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { MuiThemeProvider } from '@material-ui/core';
+import store from '../store';
+import theme from '../theme';
+import renderRoutes from '../routers';
 
-const App = () => <Fragment />;
-
-export default connect(
-  state => ({ reduxTest: state.reduxTest }),
-  // dispatch => ({ changeTest: () => dispatch(changeTest()) }),
-)(App);
+export default () => (
+  <Provider store={store}>
+    <MuiThemeProvider theme={theme}>
+      {renderRoutes()}
+    </MuiThemeProvider>
+  </Provider>
+);
