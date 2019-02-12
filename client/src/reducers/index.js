@@ -3,7 +3,7 @@ import english from '../languages/english';
 // import russian from '../languages/russian';
 
 
-const initialState = {
+export const initialState = {
   lang: english,
   registration: {},
 };

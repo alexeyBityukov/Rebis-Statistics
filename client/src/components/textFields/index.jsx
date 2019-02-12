@@ -4,18 +4,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 
-const renderTextField = ({
+export const RenderTextField = ({
   input,
   label,
   meta: { touched, error },
   children,
-  test,
+  errors,
+  required,
 }) => (
   <TextField
     error={Boolean(touched && error)}
-    helperText={Boolean(touched && error) && test[error]}
+    helperText={Boolean(touched && error) && errors[error]}
     margin="normal"
     fullWidth
+    required={required}
     label={label}
     {...input}
   >
@@ -23,7 +25,7 @@ const renderTextField = ({
   </TextField>
 );
 
-renderTextField.propTypes = {
+RenderTextField.propTypes = {
   meta: PropTypes.shape({}),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
@@ -31,15 +33,17 @@ renderTextField.propTypes = {
   ]),
   input: PropTypes.shape({}),
   label: PropTypes.string,
-  test: PropTypes.shape({}),
+  errors: PropTypes.shape({}),
+  required: PropTypes.bool,
 };
 
-renderTextField.defaultProps = {
+RenderTextField.defaultProps = {
   meta: {},
   children: null,
   input: {},
   label: '',
-  test: {},
+  errors: {},
+  required: false,
 };
 
-export default connect(state => ({ test: state.main.lang.errors }))(renderTextField);
+export default connect(state => ({ test: state.main.lang.errors }))(RenderTextField);
