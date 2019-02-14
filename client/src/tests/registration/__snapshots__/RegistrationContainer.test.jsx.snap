@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RegistrationContainer> should error, on call fetch to registration new user 1`] = `
+<Connect(WithStyles(ReduxForm))
+  errorMessage="creatingUserError"
+  onSubmit={[Function]}
+/>
+`;
+
+exports[`<RegistrationContainer> should shallow render correctly 1`] = `
+<Connect(WithStyles(ReduxForm))
+  errorMessage=""
+  onSubmit={[Function]}
+/>
+`;

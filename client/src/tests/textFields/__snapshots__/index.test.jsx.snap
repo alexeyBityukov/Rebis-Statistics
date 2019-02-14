@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RenderTextField> should render correctly 1`] = `
+<TextField
+  error={false}
+  fullWidth={true}
+  helperText={false}
+  label="labelText"
+  margin="normal"
+  required={false}
+  select={false}
+  variant="standard"
+/>
+`;
+
+exports[`<RenderTextField> should render with helperText 1`] = `
+<TextField
+  error={true}
+  fullWidth={true}
+  helperText="error message"
+  label="labelText"
+  margin="normal"
+  required={true}
+  select={false}
+  variant="standard"
+/>
+`;

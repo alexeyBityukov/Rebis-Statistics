@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Registration> should shallow render correctly 1`] = `
+<ReduxForm
+  classes={
+    Object {
+      "paper": "ReduxForm-paper-1",
+    }
+  }
+  destroyOnUnmount={true}
+  enableReinitialize={false}
+  errorMessage=""
+  forceUnregisterOnUnmount={false}
+  form="registration"
+  getFormState={[Function]}
+  handleSubmit={[Function]}
+  keepDirtyOnReinitialize={false}
+  lang={
+    Object {
+      "emailFieldLabel": "email",
+      "passwordFieldLabel": "pass",
+      "repeatPasswordFieldLabel": "repeat pass",
+    }
+  }
+  persistentSubmitErrors={false}
+  pure={true}
+  shouldAsyncValidate={[Function]}
+  shouldError={[Function]}
+  shouldValidate={[Function]}
+  shouldWarn={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  touchOnBlur={true}
+  touchOnChange={false}
+  updateUnregisteredFields={false}
+  validate={[Function]}
+/>
+`;
+
+exports[`<Registration> should shallow render with error message  correctly 1`] = `
+<ReduxForm
+  classes={
+    Object {
+      "paper": "ReduxForm-paper-1",
+    }
+  }
+  destroyOnUnmount={true}
+  enableReinitialize={false}
+  errorMessage="message"
+  forceUnregisterOnUnmount={false}
+  form="registration"
+  getFormState={[Function]}
+  handleSubmit={[Function]}
+  keepDirtyOnReinitialize={false}
+  lang={
+    Object {
+      "emailFieldLabel": "email",
+      "passwordFieldLabel": "pass",
+      "repeatPasswordFieldLabel": "repeat pass",
+    }
+  }
+  persistentSubmitErrors={false}
+  pure={true}
+  shouldAsyncValidate={[Function]}
+  shouldError={[Function]}
+  shouldValidate={[Function]}
+  shouldWarn={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  touchOnBlur={true}
+  touchOnChange={false}
+  updateUnregisteredFields={false}
+  validate={[Function]}
+/>
+`;
+
+exports[`<Registration> should shallow render with error message  correctly 2`] = `
+<ReduxForm
+  classes={
+    Object {
+      "paper": "ReduxForm-paper-1",
+    }
+  }
+  destroyOnUnmount={true}
+  enableReinitialize={false}
+  errorMessage="message"
+  forceUnregisterOnUnmount={false}
+  form="registration"
+  getFormState={[Function]}
+  handleSubmit={[Function]}
+  keepDirtyOnReinitialize={false}
+  lang={
+    Object {
+      "emailFieldLabel": "email",
+      "passwordFieldLabel": "pass",
+      "repeatPasswordFieldLabel": "repeat pass",
+    }
+  }
+  persistentSubmitErrors={false}
+  pure={true}
+  shouldAsyncValidate={[Function]}
+  shouldError={[Function]}
+  shouldValidate={[Function]}
+  shouldWarn={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  touchOnBlur={true}
+  touchOnChange={false}
+  updateUnregisteredFields={false}
+  validate={[Function]}
+/>
+`;

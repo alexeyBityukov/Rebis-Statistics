@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorMessage> should nothing render 1`] = `""`;
+
+exports[`<ErrorMessage> should render correctly 1`] = `
+<WithStyles(Typography)
+  align="left"
+  className="Component-error-1"
+  color="error"
+  variant="subtitle1"
+>
+  * Some error message
+</WithStyles(Typography)>
+`;
