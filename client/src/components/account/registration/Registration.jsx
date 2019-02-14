@@ -21,7 +21,7 @@ const styles = ({ spacing }) => createStyles({
   },
 });
 
-const validate = fields => (values) => {
+export const validate = fields => (values) => {
   const errors = {};
   Object.values(fields).forEach((key) => {
     if (!values[key]) errors[key] = 'requiredField';
@@ -36,9 +36,7 @@ const validate = fields => (values) => {
   return errors;
 };
 
-export default connect(
-  state => ({ lang: state.main.lang }),
-)(withStyles(styles)(reduxForm(
+export const Registration = (withStyles(styles)(reduxForm(
   {
     form: 'registration',
     validate: validate(listFields),
@@ -82,3 +80,5 @@ export default connect(
     </Paper>
   );
 })));
+
+export default connect(state => ({ lang: state.main.lang }))(Registration);

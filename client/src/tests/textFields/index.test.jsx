@@ -4,6 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import { RenderTextField } from '../../components/textFields';
 
+
 configure({ adapter: new Adapter() });
 
 const compareProps = (component, props) => {
@@ -39,7 +40,7 @@ describe('<RenderTextField>', () => {
         required
         label={label}
       />));
-    expect(shallowToJson(component)).toMatchSnapshot();
+
     compareProps(component, {
       label,
       error: true,
@@ -48,5 +49,7 @@ describe('<RenderTextField>', () => {
       margin: 'normal',
       required: true,
     });
+
+    expect(shallowToJson(component)).toMatchSnapshot();
   });
 });

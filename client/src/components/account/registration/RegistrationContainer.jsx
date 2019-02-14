@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import Registration from './Registration';
 import config from '../../../config';
 import { connect } from 'react-redux';
+import upsertRegistrationStatus from '../../../actions/upsertRegistrationStatus';
 
-export default connect(
-  state => ({ apiCreateUser: state.main.lang.errors.apiCreateUser }),
-)(class extends Component {
+export class RegistrationContainer extends Component {
     state = {
       errorMessage: '',
     };
 
     handleSubmit = (value) => {
+      const { dispatch } = this.props.store;
       fetch(`${config.apiUrl}register`, {
         method: 'POST',
         headers: {
@@ -23,11 +23,14 @@ export default connect(
         })
       }).then((response) => {
         if(response.status === 200)
-          console.log('user created, go to next action');
+          dispatch(upsertRegistrationStatus(true));
         else
           throw new Error(this.props.apiCreateUser);
       })
-        .catch((error) => {this.setState({errorMessage: error.message})});
+        .catch((error) => {
+          dispatch(upsertRegistrationStatus(false));
+          this.setState({errorMessage: error.message});
+        });
     };
 
     render() {
@@ -38,4 +41,9 @@ export default connect(
         errorMessage={errorMessage}
       />;
     }
-  });
+  };
+
+
+export default connect(
+  state => ({ apiCreateUser: state.main.lang.errors.apiCreateUser }),
+)(RegistrationContainer);
